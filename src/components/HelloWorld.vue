@@ -20,7 +20,7 @@
 									dark
 									flat
 							>
-								<v-toolbar-title>Login form</v-toolbar-title>
+								<v-toolbar-title>{{ $t("message.hello") }} Login form</v-toolbar-title>
 								<v-spacer></v-spacer>
 								<v-tooltip bottom>
 									<template v-slot:activator="{ on }">
@@ -69,6 +69,20 @@
 
 <script>
 	export default {
+		i18n: {
+			messages: {
+				en: {
+					message: {
+						hello: 'Hello world'
+					}
+				},
+				pt: {
+					message: {
+						hello: 'Olá Mundo'
+					}
+				}
+			}
+		},
 		props: {
 			source: String,
 		},

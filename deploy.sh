@@ -3,6 +3,10 @@
 # abort on errors
 set -e
 
+# setting up locale
+rm -rf .env.local
+echo 'VUE_APP_LOCALE='$1 > .env.local
+
 # build
 npm run build
 
@@ -16,10 +20,13 @@ git init
 git add -A
 git commit -m 'deploy'
 
-# if you are deploying to https://<USERNAME>.github.io
+# deploying to https://<USERNAME>.github.io
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
-# if you are deploying to https://<USERNAME>.github.io/<REPO>
+# deploying to https://<USERNAME>.github.io/<REPO>
 git push -f git@github.com:plinio-cardoso/border-radius.git master:gh-pages
+
+cd ../
+rm -rf .env.local
 
 cd -
